@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap');
+body {
+    background-color: rgb(73, 72, 72);
+    color: white;
+    background-image: url('https://img.freepik.com/premium-photo/noname-image-kickboxer-dark-background-concept_392761-4696.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-blend-mode: overlay;
+}
+body.blurred::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    backdrop-filter: blur(2px);
+    z-index: 999; /* Ensure it is below the overlay */
+}
+
+#overlay, #overlay2, #overlay3 {
+    position: fixed;
+    top: 8em;
+    left: 13.5em;
+    width: 70%;
+    height: 60%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border: 2px solid greenyellow;
+    border-radius: 1.4em;
+    display: none;
+    padding: 1.5em;
+    font-size: 17px;
+    backdrop-filter: blur(40px);
+    z-index: 1000; /* Ensure it is above other content */
+}
+
+#form1{
+    position: fixed;
+    top: 12em;
+    left: 30.5em;
+    width: 30%;
+    height: 50%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border: 2px solid greenyellow;
+    border-radius: 1.4em;
+    display: none;
+    padding: 1.5em;
+    font-size: 17px;
+    backdrop-filter: blur(40px);
+    z-index: 1000; 
+}
+
+#overlay.visible {
+    display: block;
+}
+
+#overlay2.visible{
+    display: block;
+}
+#overlay3.visible, #form1.visible{
+    display: block;
+}
+
+#closeBtn, #closeBtn2, #closeBtn3, #closeBtn4{
+    float: right;
+    margin-top: -0.7em;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+::-webkit-scrollbar {
+    scrollbar-width: none;
+}
+
+.loader-animation {
+    height: 140%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    position: absolute;
+    animation-fill-mode: forwards;
+    margin-top: -1em;
+}
+.loader-animation img{
+    margin-left: 2em;
+    opacity: 0;
+    animation: fadeIn 2s 1s ease forwards, logoShift 1.5s 8s forwards
+
+}
+
+
+@keyframes change{
+    from{
+        background-color: black;
+    }
+    to{
+        background: transparent;
+    }
+}
+@keyframes change2{
+    from{
+        overflow: scroll;
+    }
+    to{
+        overflow: scroll;
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes wipeIn {
+    0% {
+        clip-path: inset(0 100% 0 0);
+        opacity: 1;
+    }
+
+    100% {
+        clip-path: inset(0 0 0 0);
+        opacity: 1;
+    }
+}
+
+@keyframes wipeOut {
+    0% {
+        clip-path: inset(0 0 0 0);
+        opacity: 1;
+    }
+
+    100% {
+        clip-path: inset(0 100% 0 0);
+        opacity: 1;
+    }
+}
+
+h2 {
+    color: greenyellow;
+    display: inline-block;
+    margin-left: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#f {
+    color: rgb(218, 216, 216);
+}
+
+nav {
+    display: inline-block;
+    margin-top: 18px;
+}
+
+h4 {
+    float: right;
+    margin-right: 7px;
+    color: rgb(218, 216, 216);
+    padding: 0.5em;
+    transition: color 0.4s ease;
+}
+
+h4:hover {
+    color: greenyellow;
+    cursor: pointer;
+    background-color: greenyellow;
+    color: black;
+    padding: 0.5em;
+    border-radius: 7px;
+}
+
+li {
+    display: inline-block;
+    margin-left: 3em;
+    color: rgb(218, 216, 216);
+    padding: 0.5em;
+    transition: color 0.4s ease;
+}
+
+li:hover {
+    color: greenyellow;
+    cursor: pointer;
+    background-color: greenyellow;
+    color: black;
+    padding: 0.5em;
+    border-radius: 7px;
+}
+
+.quotes {
+    height: 200px;
+    width: 680px;
+    color: rgb(218, 216, 216);
+    margin-top: 8em;
+    margin-left: 3em;
+    font-size: 1.05em;
+    font-family: "Bodoni Moda SC";
+}
+
+#quoter {
+    color: greenyellow;
+}
+
+header {
+    opacity: 0;
+    animation: fadeIn ease 2.7s 1.5s forwards;
+}
+
+#Re,
+#Qu {
+    opacity: 0;
+    animation: fly-in-from-left ease 2.2s 0.5s forwards;
+}
+
+@keyframes fly-in-from-left {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes FadeInTop {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to { opacity: 1 }
+}
+@keyframes FadeOutBottom{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+}
+.reminder {
+    height: 180px;
+    width: 330px;
+    text-wrap: wrap;
+    color: black;
+    background-color: greenyellow;
+    border-radius: 2.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-top: 0.05em;
+    padding-bottom: 0.05em;
+    margin-top: 1em;
+    margin-left: 4em;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    font-style: italic;
+
+}
+
+#headingR {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.sec1 {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5em;
+}
+
+.services {
+    height: 300px;
+    cursor: pointer;
+    width: 360px;
+    border-radius: 2em;
+    transition: transform 0.5s;
+}
+
+.sec2 {
+    margin-top: -0.4em;
+    padding-top: 3em;
+    display: flex;
+    justify-content: space-around;
+}
+
+#sec1_title,
+#sec2_title,
+#sec3_title {
+    font-family: "Protest Guerrilla";
+    font-size: 70px;
+    height: max-content;
+    text-align: center;
+    margin-top: 150px;
+    margin-left: 0.5em;
+}
+
+.services p {
+    padding-top: 9em;
+}
+
+#serv1 {
+    background-image: url('../ASSETS/cat1.png');
+    background-size: cover;
+}
+
+#serv2 {
+    background-image: url('../ASSETS/cat2.png');
+    background-size: cover;
+}
+
+#serv3 {
+    background-image: url('../ASSETS/contact_form.png');
+    background-size: cover;
+}
+
+.services:hover {
+    transform: scale(1.05);
+}
+
+.plans {
+    height: 300px;
+    width: 360px;
+    border-radius: 2em;
+    transition: transform 0.5s;
+}
+
+.plans p {
+    padding-top: 9em;
+    font-size: 17px;
+}
+
+#plan1 {
+    background-image: url('../ASSETS/team1.png');
+    background-size: cover;
+}
+
+#plan2 {
+    background-image: url('../ASSETS/team2.png');
+    background-size: cover;
+}
+
+.plans:hover {
+    transform: scale(1.05);
+}
+
+.contact-us {
+    margin-top: 5em;
+    margin-left: 17em;
+    height: 20em;
+    width: 60%;
+    background: transparent;
+    border-radius: 1em;
+    border: 2px solid greenyellow;
+    padding: 1em;
+    color: white;
+    font-family: "Bodoni Moda SC";
+}
+
+.contact-us h2 {
+    font-family: "Big Shoulders Stencil Text", sans-serif;
+    color: white;
+    font-size: 40px;
+    width: 4em;
+}
+.contact-us p{
+    width: 17em;
+}
+.contact-form {
+    float: right;
+    margin-right: 8em;
+    margin-top: -12em;
+}
+
+.email {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 1.8em;
+    width: 20em;
+    border-radius: 0.5em;
+}
+
+.feedback {
+    height: 6em;
+    width: 20em;
+    border-radius: 1em;
+}
+
+button{
+    color: greenyellow;
+    background-color: black;
+    font-size: 15px;
+    border-radius: 9px;
+    padding: 0.7em;
+    margin-top: 2em;
+    transition: all 0.4s ease;
+}
+button:hover{
+    color: black;
+    background-color: greenyellow;
+}
+.members1,
+.members2 {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 2em;
+}
+
+.box {
+    padding: 1em;
+    width: 23em;
+    border-radius: 0.7em;
+    border: 3px solid greenyellow;
+}
+
+.box p {
+    color: rgb(221, 219, 219);
+    font-size: 19px;
+}
+
+.box h2{
+    color: white;
+}
+footer {
+    height: 35em;
+    background-color: black;
+}
+
+#footer_title {
+    font-family: "Big Shoulders Stencil Text", sans-serif;
+    font-size: 70px;
+    height: max-content;
+    text-align: center;
+    margin-top: 100px;
+    margin-left: 7.7em;
+}
+
+.socials {
+    width: 100%;
+    display: flex;
+    margin-left: 32em;
+}
+.socials .fab{
+    margin-left: 3.2em;
+}
