@@ -10,7 +10,9 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: transparent;
+            background: url('../ASSETS/websiteBG.png');
+            background-size: cover;
+            background-repeat: no-repeat;
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: rgb(0, 0, 0);
@@ -23,7 +25,11 @@
             border-radius: 15px;
             box-shadow: 0 0 20px greenyellow;
             width: 300px;
+            text-align: left;
+        }
+        h1{
             text-align: center;
+            margin-bottom: 1.5em;
         }
         select, input[type="number"] {
             width: 100%;
@@ -75,59 +81,5 @@
         </form>
         <div id="results" style="margin-top: 20px;"></div>
     </div>
-    
-    <script>
-        document.getElementById('bodyTypeForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevents form from submitting the default way
-            
-            const bodyType = document.getElementById('bodyType').value;
-            const weight = parseFloat(document.getElementById('weight').value);
-            const height = parseFloat(document.getElementById('height').value);
-
-            if (weight < 30 || weight > 105) {
-                alert("Weight must be between 30kg and 105kg.");
-                return;
-            }
-            
-            if (height < 140 || height > 200) {
-                alert("Height must be between 140cm and 200cm.");
-                return;
-            }
-
-            let recommendations = `Body Type: ${bodyType}<br>`;
-            recommendations += `Weight: ${weight} kg<br>`;
-            recommendations += `Height: ${height} cm<br><br>`;
-
-            // Basic BMI Calculation
-            const bmi = (weight / Math.pow(height / 100, 2)).toFixed(2);
-            recommendations += `BMI: ${bmi}<br><br>`;
-
-            // Diet Recommendations
-            switch (bodyType) {
-                case 'ectomorph':
-                    recommendations += "Diet Recommendations for Ectomorphs:<br>";
-                    recommendations += "1. Focus on calorie-dense foods to gain weight.<br>";
-                    recommendations += "2. Include a mix of protein, carbohydrates, and healthy fats.<br>";
-                    recommendations += "3. Eat frequent, balanced meals and snacks.<br>";
-                    break;
-                case 'mesomorph':
-                    recommendations += "Diet Recommendations for Mesomorphs:<br>";
-                    recommendations += "1. Maintain a balanced diet with moderate carbs, proteins, and fats.<br>";
-                    recommendations += "2. Include lean proteins and complex carbs.<br>";
-                    recommendations += "3. Stay hydrated and monitor calorie intake.<br>";
-                    break;
-                case 'endomorph':
-                    recommendations += "Diet Recommendations for Endomorphs:<br>";
-                    recommendations += "1. Focus on a high-protein, lower-carb diet.<br>";
-                    recommendations += "2. Include lots of vegetables and healthy fats.<br>";
-                    recommendations += "3. Be mindful of portion sizes and avoid excess sugar.<br>";
-                    break;
-                default:
-                    recommendations += "Please select a valid body type.";
-            }
-
-            document.getElementById('results').innerHTML = recommendations;
-        });
-    </script>
 </body>
 </html>

@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap');
-html{
+
+html {
     scroll-behavior: smooth;
 }
+
 body {
     background-color: rgb(73, 72, 72);
     color: white;
@@ -13,6 +15,7 @@ body {
     background-blend-mode: overlay;
     overflow-x: hidden;
 }
+
 body.blurred::before {
     content: "";
     position: fixed;
@@ -42,18 +45,11 @@ body.blurred::before {
     z-index: 1000; /* Ensure it is above other content */
 }
 
-#overlay.visible {
+#overlay.visible, #overlay2.visible, #overlay3.visible, #form1.visible {
     display: block;
 }
 
-#overlay2.visible{
-    display: block;
-}
-#overlay3.visible, #form1.visible{
-    display: block;
-}
-
-#closeBtn, #closeBtn2, #closeBtn3, #closeBtn4{
+#closeBtn, #closeBtn2, #closeBtn3, #closeBtn4 {
     float: right;
     margin-top: -0.7em;
     cursor: pointer;
@@ -63,6 +59,7 @@ body.blurred::before {
 ::-webkit-scrollbar {
     scrollbar-width: none;
 }
+
 h2 {
     color: greenyellow;
     display: inline-block;
@@ -130,7 +127,8 @@ li:hover {
     font-size: 1.05em;
     font-family: "Bodoni Moda SC";
 }
-.fade-out{
+
+.fade-out {
     opacity: 0;
     transition: all 0.4s ease;
 }
@@ -138,10 +136,10 @@ li:hover {
 #quoter {
     color: greenyellow;
 }
-
 header {
     opacity: 0;
     animation: fadeIn ease 2.7s 1.5s forwards;
+    width: 100%;
 }
 
 #Re,
@@ -150,18 +148,24 @@ header {
     animation: fly-in-from-left ease 2.2s 0.5s forwards;
 }
 
-.container{
-    width: max-content;
+.container1, .container2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: 20em;
+    width: 100%;
 }
+
 .skew-wrapper {
     position: relative;
     overflow: hidden;
     height: 30em;
+    border: 3.2px solid greenyellow;
+    border-radius: 50%;
     width: 30em;
     float: right;
     margin-right: 3em;
     margin-top: -28em;
-    transform: rotate(-47deg);
     z-index: -10;
     opacity: 0;
     animation: fadeIn 3s 1.5s forwards ease;
@@ -171,19 +175,15 @@ header {
     content: "";
     position: absolute;
     top: 0;
-    border: 3px solid greenyellow;
     left: 0;
     width: 100%;
+    border-radius: 80%;
     height: 100%;
-    transform: rotate(47deg);
     background-image: url('../ASSETS/IMG_20240930_133147.png');
     background-size: cover;
     background-position: center;
     z-index: -1; /* Ensure the background is behind the content */
 }
-
-
-
 
 @keyframes fly-in-from-left {
     from {
@@ -212,17 +212,21 @@ header {
         opacity: 0;
         transform: translateY(-100%);
     }
-    to { opacity: 1 }
-}
-@keyframes FadeOutBottom{
-    from{
+    to {
         opacity: 1;
     }
-    to{
+}
+
+@keyframes FadeOutBottom {
+    from {
+        opacity: 1;
+    }
+    to {
         opacity: 0;
         transform: translateY(-100%);
     }
 }
+
 .reminder {
     height: 180px;
     width: 330px;
@@ -239,7 +243,6 @@ header {
     font-family: Arial, Helvetica, sans-serif;
     display: inline-block;
     font-style: italic;
-
 }
 
 #headingR {
@@ -248,9 +251,26 @@ header {
 }
 
 .sec1 {
+    display: grid;
+    margin-top: 1em;
+}
+
+.serv-container {
     display: flex;
     justify-content: space-around;
-    margin-top: 5em;
+}
+
+.text-container {
+    display: flex;
+    gap: 4em;
+    width: 100%;
+}
+
+.serv-heading {
+    text-align: center;
+    text-wrap: wrap;
+    width: 25em;
+    margin-left: 3em;
 }
 
 .services {
@@ -262,10 +282,7 @@ header {
 }
 
 .sec2 {
-    margin-top: -0.4em;
-    padding-top: 3em;
-    display: flex;
-    justify-content: space-around;
+    display: grid;
 }
 
 #sec1_title,
@@ -301,7 +318,7 @@ header {
 }
 
 .services:hover {
-    transform: scale(1.05);
+    transform: scale(2);
 }
 
 .plans {
@@ -309,6 +326,16 @@ header {
     width: 360px;
     border-radius: 2em;
     transition: transform 0.5s;
+    background-color: lightcoral;
+    padding: 10px;
+}
+
+.heading {
+    display: block;
+    height: 20%;
+    width: 100%;
+    text-align: center;
+    justify-content: space-between;
 }
 
 .plans p {
@@ -349,9 +376,11 @@ header {
     font-size: 40px;
     width: 4em;
 }
-.contact-us p{
+
+.contact-us p {
     width: 17em;
 }
+
 .contact-form {
     float: right;
     margin-right: 5em;
@@ -374,11 +403,12 @@ header {
     opacity: 0.7;
     background-color: grey;
 }
-input::placeholder{
+
+input::placeholder {
     color: white;
 }
 
-button{
+button {
     color: greenyellow;
     background-color: black;
     font-size: 15px;
@@ -387,12 +417,13 @@ button{
     margin-top: 2em;
     transition: all 0.4s ease;
 }
-button:hover{
+
+button:hover {
     color: black;
     background-color: greenyellow;
 }
-.members1,
-.members2 {
+
+.members1, .members2 {
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 2em;
@@ -410,9 +441,10 @@ button:hover{
     font-size: 19px;
 }
 
-.box h2{
+.box h2 {
     color: white;
 }
+
 footer {
     height: 35em;
     background-color: black;
@@ -433,6 +465,7 @@ footer {
     display: flex;
     margin-left: 34em;
 }
-.socials .fab{
+
+.socials .fab {
     margin-left: 3.2em;
 }
